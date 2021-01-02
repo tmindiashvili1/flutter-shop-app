@@ -39,7 +39,6 @@ class Cart with ChangeNotifier {
     String title,
   ) {
     if (_items.containsKey(productId)) {
-      // change quantity...
       _items.update(
         productId,
         (existingCartItem) => CartItem(
@@ -78,14 +77,12 @@ class Cart with ChangeNotifier {
           (existingCartItem) => CartItem(
                 id: existingCartItem.id,
                 title: existingCartItem.title,
-                quantity: existingCartItem.quantity - 1,
                 price: existingCartItem.price,
+                quantity: existingCartItem.quantity - 1,
               ));
-      return;
     } else {
       _items.remove(productId);
     }
-
     notifyListeners();
   }
 

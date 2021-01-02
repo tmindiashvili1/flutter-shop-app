@@ -104,7 +104,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
           context: context,
           builder: (ctx) => AlertDialog(
             title: Text('An error occurred!'),
-            content: Text('Something went wrong.'),
+            content: Text('Something went wrong!'),
             actions: <Widget>[
               FlatButton(
                 child: Text('Okay'),
@@ -116,21 +116,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
           ),
         );
       }
-
-      // finally {
-      //   setState(() {
-      //     _isLoading = false;
-      //   });
-      //   Navigator.of(context).pop();
-      // }
     }
-
     setState(() {
       _isLoading = false;
     });
     Navigator.of(context).pop();
-
-    // Navigator.of(context).pop();
   }
 
   @override

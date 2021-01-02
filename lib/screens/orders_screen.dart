@@ -11,7 +11,6 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('building orders');
-    // final orderData = Provider.of<Orders>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Orders'),
@@ -24,8 +23,6 @@ class OrdersScreen extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           } else {
             if (dataSnapshot.error != null) {
-              // ...
-              // Do error handling stuff
               return Center(
                 child: Text('An error occurred!'),
               );
