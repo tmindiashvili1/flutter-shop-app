@@ -7,12 +7,6 @@ import '../providers/cart.dart';
 import '../providers/auth.dart';
 
 class ProductItem extends StatelessWidget {
-  // final String id;
-  // final String title;
-  // final String imageUrl;
-
-  // ProductItem(this.id, this.title, this.imageUrl);
-
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
@@ -28,8 +22,9 @@ class ProductItem extends StatelessWidget {
               arguments: product.id,
             );
           },
-          child: Image.network(
-            product.imageUrl,
+          child: FadeInImage(
+            placeholder: AssetImage('assets/images/product-placeholder.png'),
+            image: NetworkImage(product.imageUrl),
             fit: BoxFit.cover,
           ),
         ),
@@ -67,7 +62,7 @@ class ProductItem extends StatelessWidget {
                   ),
                   duration: Duration(seconds: 2),
                   action: SnackBarAction(
-                    label: 'UNDO!',
+                    label: 'UNDO',
                     onPressed: () {
                       cart.removeSingleItem(product.id);
                     },
